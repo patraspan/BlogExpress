@@ -324,3 +324,10 @@ footer {
 .btn-lg {
   font-size: 16px;
   padding: 25px 35px; }
+
+.content {
+   white-space: pre-line; 
+}
+.errors {
+  list-style-type: none;
+}

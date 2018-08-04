@@ -1,0 +1,61 @@
+@layout('layouts.app')
+
+@section('content')
+  <!-- Page Header -->
+<header class="masthead" style="background-image: url('/img/join.jpeg')">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="page-heading">
+          <h1 style="font-family: 'Reenie Beanie', cursive; font-weight: 300">Create New Account</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Main Content -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+      @if(errors.length > 0)
+        <ul class="list-group errors">
+          @each(error in errors)
+            <li class="alert alert-danger">{{error}}</li>
+          @endeach
+        </ul>
+      @endif
+      <form action="/users/register" method="POST" encType="multipart/form-data">
+        <div class="control-group">
+          <div class="form-group floating-label-form-group controls">
+            <label>Username</label>
+          <input type="text" name="username" class="form-control" value="{{ data.username || '' }}" placeholder="Username" id="username" data-validation-required-message="Please enter your title.">
+            <p class="help-block text-danger"></p>
+          </div>
+        <div class="control-group">
+          <div class="form-group floating-label-form-group controls">
+            <label>Email</label>
+            <input type="email" name="email" class="form-control" value="{{ data.email || '' }}" placeholder="Email" id="email" data-validation-required-message="Please enter your title.">
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+        <div class="control-group">
+          <div class="form-group floating-label-form-group controls">
+            <label>Password</label>
+            <input type="password" name="password" class="form-control" placeholder="Password" id="password" data-validation-required-message="Please enter your title.">
+            <p class="help-block text-danger"></p>
+          </div>
+        </div>
+        <div class="control-group">
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary" id="sendMessageButton">Register now</button>
+        </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<hr>
+@endsection
